@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h1>Admin page</h1>
+    </header>
+
+    <main>
+        <form action="/adding-to-database" method="post">
+            <div>
+                <label for="identity">ID</label>
+                <input type="number" name="id">
+    
+                <label for="description">description</label>
+                <input type="text" name="description">
+    
+                <label for="imgSrc">imgSrc</label>
+                <input type="text" name="imgSrc">
+    
+                <label for="author">author</label>
+                <input type="text" name="author">
+    
+                <button submit="button" name="submitToServer">submit</button>
+            </div>
+        </form>
+
+    </main>
+</body>
+</html>

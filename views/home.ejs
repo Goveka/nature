@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nature best pics</title>
+    <link rel="stylesheet" href="./css/all.min.css">
+    <link rel="stylesheet" href="./css/nature.css">
+</head>
+<body>
+    <header>
+        <h1>Nature's pics</h1>
+        <h3>a place where you can view all nature's wonders </h3>
+        <p> <strong>NOTE</strong> :all the images displayed on this site are from <a href="https://www.pexels.com/">pexels.com</a></p>
+    </header>
+    <main>
+        <div id="picsContainer">
+        <% nature.forEach((naturePics)=>{ %>
+                <div class="naturePics" id="<%= naturePics._id %>" >
+                    <a href="<%= naturePics.imgSrc %>">
+                    <p class="picDescription"><%= naturePics.description %></p>
+                    <img src="<%= naturePics.imgSrc %>" alt="nature">
+                    <p id="author"> Author: <%= naturePics.author %></p>
+                </a>
+                <div>
+                   <button class="likesBtn">
+                    <i class="fas fa-heart fa-1x"></i> <p><%= naturePics.likes %></p> 
+                </button> 
+                    <button class="downloadBtn">
+                        <i class="fas fa-download fa-1x"></i><a href="<%=naturePics.imgsrc %> " download></a>
+                        <p><%=naturePics.downloads %> </p>
+                    </button>
+                </div>
+                </div>
+            
+
+        <% }); %>
+    </div>
+    </main>
+    <footer>
+        <div class="footerBody">
+            <div>Nature's pics</div>
+        <div class="infoPages">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos et illum ut accusamus vel reiciendis, quod itaque harum unde ad tempora at laborum error fugiat deleniti eius nostrum placeat ea.</p>
+        <ul>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Terms & conditions</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+        </ul>
+        </div>
+        </div>
+        <div class="footerCopyright">
+            <p>developed by sizwe| ©Copyright 2022</p>
+        </div>
+    </footer>
+    <script src="./javascript/nature.js"></script>
+</body>
+</html>

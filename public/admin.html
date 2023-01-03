@@ -15,21 +15,26 @@
         <form action="/adding-to-database" method="post">
             <div>
                 <label for="identity">ID</label>
-                <input type="number" name="id">
+                <input type="number" name="id"><br>
     
                 <label for="description">description</label>
-                <input type="text" name="description">
+                <input type="text" name="description"><br><br>
     
                 <label for="imgSrc">imgSrc</label>
-                <input type="text" name="imgSrc">
+                <input type="text" name="imgSrc"><br><br>
     
                 <label for="author">author</label>
-                <input type="text" name="author">
+                <input type="text" name="author"><br>
     
-                <button submit="button" name="submitToServer">submit</button>
+                <button submit="button" name="submitToServer" onclick="submit()">submit</button>
             </div>
         </form>
 
     </main>
+    <script>
+    function submit(){
+        alert("sent to the server")
+    }
+    </script>
 </body>
 </html>

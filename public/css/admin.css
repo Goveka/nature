@@ -1,0 +1,66 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header{
+    background: rgb(63,94,251);
+    background: radial-gradient(circle,rgba(63,94,251,1)0%,rgba(0,0,0,1)0%,rgba(18,74,44,1));
+    min-height: 20vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+}
+
+#uploading{
+    margin-left: 10%;
+    margin-top: 5%;
+}
+
+#uploading > h2{
+margin: 5%;
+color: rgba(24, 2, 2, 0.87);
+}
+
+#uploading > form > div{
+display: flex;
+align-items: center;
+flex-wrap: wrap;
+gap: 5em;
+}
+
+#uploading > form > div > label{
+    background-color: rgba(10, 179, 94, 0.849);
+    height: 5vh;
+}
+
+#uploading > form > div >  input{
+    width: 80%;
+    height: 5vh;
+    font-weight: bolder;
+    text-align: center;
+}
+
+#content{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2em;
+    justify-content: center;
+}
+
+.individual-content > img{
+    max-width: 20%;
+    border-radius: 50%;
+}
+
+button{
+    background-color: rgba(10, 179, 94, 0.849);
+    color: rgb(29, 128, 214);
+    font-weight: bolder;
+    font-size: 1.5rem;
+}

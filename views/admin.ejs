@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/all.min.css">
+    <link rel="stylesheet" href="./css/admin.css">
+    <title>admin</title>
+</head>
+<body>
+    <header>
+        <h1>Admin page</h1>
+    </header>
+
+    <main>
+        <div id="uploading">
+            <h2>uploading objects in this form</h2>
+            <form action="/adding-to-database" method="post">
+                <div>
+                    <label for="identity">ID</label>
+                    <input type="number" name="id" id="identity" required="true">
+        
+                    <label for="description">description</label>
+                    <input type="text" name="description" id="description" required="true">
+        
+                    <label for="imgSrc">imgSrc</label>
+                    <input type="text" name="imgSrc" id="imgSrc" required="true">
+        
+                    <label for="author">author</label>
+                    <input type="text" name="author" id="author" required="true">
+        
+                    <button submit="button" name="submitToServer" onclick="submit()">submit</button>
+                </div>
+            </form>
+        </div>
+        <h2>deleting content</h2>
+        <div id="content">
+            <% nature.forEach((naturePics)=>{ %>
+                <div class="individual-content" id="<%= naturePics._id %>">
+                    <h1><%= naturePics.id %>: <%= naturePics.description %></h1>
+                    <p><%= naturePics.imgSrc %></p>
+                    <img src="<%= naturePics.imgSrc %>" alt="landsacpe">
+                    <p><%= naturePics.author %></p>
+                    <p>likes:<%=naturePics.likes %> || downloads:<%= naturePics.downloads %></p>
+                    <button class="deleteBtn">Delete</button>
+                </div>
+          <%  }) %>
+        </div>
+
+    </main>
+    <script src="./javascript/admin.js"></script>
+
+</body>
+</html>

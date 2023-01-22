@@ -35,4 +35,3 @@ downloadBtn.forEach(function(button){
     
     });
 });
-

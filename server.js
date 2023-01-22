@@ -5,8 +5,8 @@ const mongoose= require("mongoose");
 const fs = require('fs');
 const cors= require('cors');
 const bodyParser= require('body-parser');
-//const url= "mongodb://localhost:27017/test";
-const url='mongodb+srv://Sizwenkala:sizwe123@cluster0.fejtt.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+const url= "mongodb://localhost:27017/test";
+//const url='mongodb+srv://Sizwenkala:sizwe123@cluster0.fejtt.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
 const port= process.env.PORT || 9000
 // setting up the template engine
 app.set("view engine", "ejs");
@@ -73,6 +73,18 @@ Nature.find({}, (err, nature)=>{
 
 })
 
+app.get('/admin', (req,res)=>{
+    Nature.find({}, (err, nature)=>{
+        if(err){
+            console.log(err)
+        }else{
+            res.render('admin', {
+                nature: nature
+            })
+        }
+    })
+})
+
 // API endpoint that will allow to connect using fetch
 app.get('/api/nature', (req,res)=>{
     Nature.find({}, (err,data)=>{
@@ -80,6 +92,51 @@ app.get('/api/nature', (req,res)=>{
         res.send(data);
     })
 })
+
+// Api endpoint for likes and downloads
+//updating the likes on the database
+app.post('/api/update-likes', (res,req)=>{
+    const id= req.body.id;
+     Nature.findOne({_id: id}, (err, object)=>{
+         if (err) {
+             res.sendStatus(500)
+         }else {
+             object.likes += 1;
+             object.save(function(err){
+                 if (err){
+                     res.sendStatus(500)
+                     console.error(err)
+                 }else {
+                     res.sendStatus(200)
+                     console.log('updated');
+                 }
+             })
+         }
+     })
+ })
+ 
+ //updating downloads on the database
+ app.post('/api/update-downloads', (req,res)=>{
+     const id= req.body.id;
+      Nature.findOne({_id: id}, (err, object)=>{
+          if (err) {
+              res.sendStatus(500)
+          }else {
+              object.downloads += 1;
+              object.save(function(err){
+                  if (err){
+                      res.sendStatus(500)
+                      console.error(err)
+                  }else {
+                      res.sendStatus(200)
+                      console.log('updated');
+                  }
+              })
+          }
+      })
+  })
+ 
+
 
 app.post('/adding-to-database', (req,res)=>{
 
@@ -95,13 +152,14 @@ const nature= new Nature({
  //save to the database
 nature.save((err)=>{
     if(err) throw err;
-  console.log('item inserted to database');
+  console.log('item inserted to database')
+  res.send("items has been inserted");
 }) 
 })
 
 
 //updating the likes on the database
-app.post('/update-likes', (req,res)=>{
+app.post('/update-likes', (res,req)=>{
    const id= req.body.id;
     Nature.findOne({_id: id}, (err, object)=>{
         if (err) {
@@ -141,8 +199,15 @@ app.post('/update-downloads', (req,res)=>{
          }
      })
  })
-
-
+// deleting document from the database
+app.post('/delete-objects', (req,res)=>{
+    const id = req.body.id;
+    Nature.deleteOne({_id: id}, (err)=>{
+        if (err) throw err;
+            console.log('item deleted')
+            res.send('deleted')
+        })
+    })
 
 
 

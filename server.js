@@ -5,8 +5,8 @@ const mongoose= require("mongoose");
 const fs = require('fs');
 const cors= require('cors');
 const bodyParser= require('body-parser');
-const url= "mongodb://localhost:27017/test";
-//const url='mongodb+srv://Sizwenkala:sizwe123@cluster0.fejtt.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+// const url= "mongodb://localhost:27017/test";
+const url='mongodb+srv://Sizwenkala:sizwe123@cluster0.fejtt.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
 const port= process.env.PORT || 9000
 // setting up the template engine
 app.set("view engine", "ejs");

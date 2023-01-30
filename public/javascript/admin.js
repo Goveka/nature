@@ -12,3 +12,13 @@ setTimeout(function(){
 
   })
 })
+
+const submitBtn=document.getElementById('submit').addEventListener('click', (e)=>{
+    e.preventDefault;
+    const identity= document.getElementById('identity').value == "";
+    const description= document.getElementById('description').value == "";
+    const imgSrc=document.getElementById('imgSrc').value == "";
+    const author=document.getElementById('author').value == "";
+
+ 
+})

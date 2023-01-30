@@ -5,8 +5,8 @@ const mongoose= require("mongoose");
 const fs = require('fs');
 const cors= require('cors');
 const bodyParser= require('body-parser');
-const url= "mongodb://localhost:27017/test";
-//const url='mongodb+srv://Sizwenkala:sizwe123@cluster0.fejtt.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+//const url= "mongodb://localhost:27017/test";
+const url='mongodb+srv://Sizwenkala:sizwe123@cluster0.fejtt.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
 const port= process.env.PORT || 9000
 // setting up the template engine
 app.set("view engine", "ejs");
@@ -159,7 +159,7 @@ nature.save((err)=>{
 
 
 //updating the likes on the database
-app.post('/update-likes', (res,req)=>{
+app.post('/update-likes', (req,res)=>{
    const id= req.body.id;
     Nature.findOne({_id: id}, (err, object)=>{
         if (err) {
@@ -205,7 +205,6 @@ app.post('/delete-objects', (req,res)=>{
     Nature.deleteOne({_id: id}, (err)=>{
         if (err) throw err;
             console.log('item deleted')
-            res.send('deleted')
         })
     })
 

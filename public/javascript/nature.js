@@ -7,6 +7,7 @@ likesBtn.forEach(function(button){
     button.addEventListener('click', ()=>{
         button.style.color="red";
         const id= button.parentElement.parentElement.id
+        console.log(id);
         const request= new XMLHttpRequest();
         request.open('Post', '/update-likes');
         request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');

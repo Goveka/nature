@@ -30,7 +30,7 @@
                     <label for="author">author</label>
                     <input type="text" name="author" id="author" required="true">
         
-                    <button submit="button" name="submitToServer" onclick="submit()">submit</button>
+                    <button type="submit" name="submitToServer" id="submit">submit</button>
                 </div>
             </form>
         </div>
@@ -39,6 +39,7 @@
             <% nature.forEach((naturePics)=>{ %>
                 <div class="individual-content" id="<%= naturePics._id %>">
                     <h1><%= naturePics.id %>: <%= naturePics.description %></h1>
+                    <h3>database id: <%= naturePics._id %></h3>
                     <p><%= naturePics.imgSrc %></p>
                     <img src="<%= naturePics.imgSrc %>" alt="landsacpe">
                     <p><%= naturePics.author %></p>

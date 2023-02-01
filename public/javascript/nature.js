@@ -23,7 +23,29 @@ likesBtn.forEach(function(button){
 
 downloadBtn.forEach(function(button){
     
-    button.addEventListener('click', ()=>{
+    button.addEventListener('click', (e)=>{
+        //preparing to download the image
+        const imgUrl= e.target.id;
+        let xhr= new XMLHttpRequest();
+        xhr.open('GET', imgUrl, true);
+        xhr.responseType= 'blob';
+
+        xhr.onload= function(e) {
+            if(this.status == 200) {
+                let blob = new Blob([this.response], {type: 'image/jpeg'});
+
+                // creating url for the image data
+                let imageUrl= URL.createObjectURL(blob);
+                // creating an anchor tag  with the download property
+                let link= document.createElement('a');
+                link.href = imageUrl;
+                link.download= 'image.jpg'
+                // trigger the download
+                link.click();
+            }
+        }
+        xhr.send();
+        //sending an update of the downloads value to the server
         const id= button.parentElement.parentElement.id
         const request= new XMLHttpRequest();
         request.open('Post', '/update-downloads');
@@ -34,5 +56,6 @@ downloadBtn.forEach(function(button){
         let addLike=Number(like.innerText);
         button.lastElementChild.innerText=addLike +1;
     
+        
     });
 });

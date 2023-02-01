@@ -28,9 +28,8 @@
                    <button class="likesBtn">
                     <i class="fas fa-heart fa-1x"></i> <p><%= naturePics.likes %></p> 
                 </button> 
-                    <button class="downloadBtn">
-                <a href="<%=naturePics.imgsrc %> " download><i class="fas fa-download fa-1x"></i>
-                </a>
+                    <button class="downloadBtn" id="<%= naturePics.imgSrc %>" >
+                 <i class="fas fa-download fa-1x"></i>
                         <p><%=naturePics.downloads %> </p>
                     </button>
                 </div>

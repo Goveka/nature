@@ -17,7 +17,7 @@ app.use(bodyParser.urlencoded({
 }))
 app.use(express.json());
 app.use(express.static('public'));
-app.use(cors())
+app.use(cors());
 
 
 // connecting to database

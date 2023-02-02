@@ -1,4 +1,4 @@
-require('dotenv').config();
+
 const express= require("express");
 const app=express();
 const mongoose= require("mongoose");
@@ -6,6 +6,7 @@ const fs = require('fs');
 const cors= require('cors');
 const bodyParser= require('body-parser');
  //const url= "mongodb://localhost:27017/test";
+require('dotenv').config();
  const url= process.env.DATABASE_URL;
 const port= process.env.PORT || 9000
 // setting up the template engine

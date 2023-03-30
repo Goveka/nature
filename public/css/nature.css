@@ -10,20 +10,23 @@ img{
 
 a:link{
     text-decoration: none;
-   color: rgb(43, 7, 7);
+   color: rgb(3, 121, 255);
 }
 
 a:visited{
     text-decoration: none;
-    color: rgba(85, 6, 6, 0.801);
+    color: rgb(2, 175, 255);
+}
+body{
+    background-color: rgb(255, 253, 253);
+    font-family: sans-serif;
 }
 
 header{
-    background-image: url('pexels-pixabay-414102.jpg');
-    background-repeat: no-repeat;
+    background-color: rgb(9, 4, 20);
     margin-bottom: 5%;
     opacity: 9;
-    color: rgb(15, 10, 10);
+    color: rgb(0, 118, 214);
     height: 35em;
     justify-content: center;
     text-align: center;
@@ -50,10 +53,10 @@ header > p{
     position: relative;
     top: 30%;
     font-weight: bolder;
-    color: rgb(43, 7, 7);;
+    color: rgb(211, 25, 25);;
 }
 strong{
-    color: rgba(12, 63, 6, 0.938);
+    color: rgba(255, 255, 255, 0.938);
 }
 
 
@@ -68,7 +71,8 @@ strong{
 
 .naturePics{
     background-color: rgb(9, 4, 20);
-    color: white;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.308);
+    color: #000000;
     font-weight: bolder;
     width: 30%;
     font-weight: bolder;
@@ -77,11 +81,12 @@ strong{
     height: fit-content;
     border-radius: 10px;
     padding: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.521);
 }
 
 #author{
     font-size: 1.1rem;
-    color: #ddd;
+    color: #fcfcfc;
 }
 
 .naturePics > p {
